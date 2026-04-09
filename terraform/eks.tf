@@ -32,6 +32,17 @@ module "eks" {
 
   }
 
+  node_security_group_additional_rules = {
+  nodeport_ingress = {
+    description = "Allow NodePort range"
+    protocol    = "tcp"
+    from_port   = 30000
+    to_port     = 32000
+    type        = "ingress"
+    cidr_blocks = ["0.0.0.0/0"] # ⚠️ restrict in production
+  }
+}
+
 
   eks_managed_node_groups = {
 
