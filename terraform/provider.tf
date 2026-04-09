@@ -18,7 +18,7 @@ locals {
     aws = {
       source  = "hashicorp/aws"
       version = ">= 5.0"
-      region = local.region
+      
     }
   }
 }
