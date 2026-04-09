@@ -1,7 +1,7 @@
 module "eks" {
 
   source  = "terraform-aws-modules/eks/aws"
-  version = "19.15.1"
+  version = "~> 20.0"
 
   cluster_name                   = local.name
   cluster_endpoint_public_access = true
@@ -40,7 +40,7 @@ module "eks" {
       max_size     = 3
       desired_size = 2
 
-      instance_types = ["t2.large"]
+      instance_types = ["m7i-flex.large"]
       capacity_type  = "SPOT"
 
       disk_size = 30
